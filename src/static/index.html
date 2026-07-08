@@ -22,12 +22,19 @@
             <span>Login</span>
           </button>
           <div id="user-info" class="hidden">
+            <button id="manage-announcements-button" class="icon-button hidden" aria-label="Manage announcements">
+              <span>Announcements</span>
+            </button>
             <span id="display-name"></span>
             <button id="logout-button">Logout</button>
           </div>
         </div>
       </div>
     </header>
+
+    <section id="announcement-region" class="announcement-region hidden" aria-live="polite" aria-label="School announcements">
+      <div id="announcement-list" class="announcement-list"></div>
+    </section>
 
     <main>
       <section id="activities-container">
@@ -131,6 +138,40 @@
           <button type="submit">Login</button>
         </form>
         <div id="login-message" class="hidden message"></div>
+      </div>
+    </div>
+
+    <!-- Announcement Management Modal -->
+    <div id="announcement-modal" class="modal hidden" aria-modal="true" role="dialog" aria-labelledby="announcement-modal-title">
+      <div class="modal-content announcement-modal-content">
+        <span class="close-announcement-modal" aria-label="Close announcements manager">&times;</span>
+        <h3 id="announcement-modal-title">Manage Announcements</h3>
+        <form id="announcement-form" class="announcement-form">
+          <input type="hidden" id="announcement-id" value="" />
+          <div class="form-group">
+            <label for="announcement-message">Message:</label>
+            <textarea id="announcement-message" required rows="3" maxlength="240" placeholder="Write the announcement students and teachers should see."></textarea>
+          </div>
+          <div class="announcement-form-grid">
+            <div class="form-group">
+              <label for="announcement-start-date">Start date (optional):</label>
+              <input type="date" id="announcement-start-date" />
+            </div>
+            <div class="form-group">
+              <label for="announcement-expiration-date">Expiration date:</label>
+              <input type="date" id="announcement-expiration-date" required />
+            </div>
+          </div>
+          <div class="announcement-form-actions">
+            <button type="submit" id="save-announcement-button">Save Announcement</button>
+            <button type="button" id="clear-announcement-form" class="secondary-button">Clear</button>
+          </div>
+        </form>
+        <div id="announcement-manage-message" class="hidden message"></div>
+        <div class="announcement-manage-list-wrap">
+          <h4>Existing Announcements</h4>
+          <div id="announcement-manage-list" class="announcement-manage-list"></div>
+        </div>
       </div>
     </div>
 
