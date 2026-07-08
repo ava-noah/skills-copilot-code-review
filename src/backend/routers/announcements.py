@@ -29,7 +29,6 @@ def _to_public(doc: Dict[str, Any]) -> Dict[str, Any]:
         "message": doc.get("message", ""),
         "start_date": doc.get("start_date"),
         "expiration_date": doc.get("expiration_date", ""),
-        "created_by": doc.get("created_by", "")
     }
 
 
